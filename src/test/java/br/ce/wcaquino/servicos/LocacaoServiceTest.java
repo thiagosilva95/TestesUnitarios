@@ -8,7 +8,11 @@ import static org.hamcrest.CoreMatchers.is;
 
 import java.util.Date;
 
+import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Assert;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ErrorCollector;
@@ -21,6 +25,8 @@ import br.ce.wcaquino.exceptions.FilmeSemEstoqueException;
 import br.ce.wcaquino.exceptions.LocadoraException;
 
 public class LocacaoServiceTest {
+	
+	private LocacaoService service;
 
 	@Rule
 	public ErrorCollector error = new ErrorCollector();
@@ -28,10 +34,29 @@ public class LocacaoServiceTest {
 	@Rule
 	public ExpectedException exception = ExpectedException.none();
 	
+	@BeforeClass
+	public static void setupClass() {
+		
+	}
+	
+	@Before
+	public void setup() {
+		service = new LocacaoService();
+	}
+	
+	@After
+	public void tearDown() {
+		
+	}
+	
+	@AfterClass
+	public static void tearDownClass() {
+		
+	}
+	
 	@Test
 	public void testeLocacao() throws Exception {
 		//cenario
-		LocacaoService service = new LocacaoService();
 		Usuario usuario = new Usuario("Usuario 1");
 		Filme filme = new Filme("Filme 1", 2, 5.0);
 		
@@ -47,7 +72,6 @@ public class LocacaoServiceTest {
 	
 	@Test(expected=Exception.class)
 	public void testeLocacaoFilmeSemEstoque() throws Exception {
-		LocacaoService service = new LocacaoService();
 		Usuario usuario = new Usuario("Usuario 1");
 		Filme filme = new Filme("Filme 1", 0, 5.0);
 		
@@ -57,7 +81,6 @@ public class LocacaoServiceTest {
 	
 	@Test
 	public void testeLocacaoFilmeSemEstoque2() {
-		LocacaoService service = new LocacaoService();
 		Usuario usuario = new Usuario("Usuario 1");
 		Filme filme = new Filme("Filme 1", 0, 5.0);
 		
@@ -72,7 +95,6 @@ public class LocacaoServiceTest {
 	
 	@Test
 	public void testeLocacaoFilmeSemEstoque3() throws Exception {
-		LocacaoService service = new LocacaoService();
 		Usuario usuario = new Usuario("Usuario 1");
 		Filme filme = new Filme("Filme 1", 0, 5.0);
 		
@@ -85,7 +107,6 @@ public class LocacaoServiceTest {
 	
 	@Test
 	public void testeLocacaoUsuarioVazio() throws FilmeSemEstoqueException {
-		LocacaoService service = new LocacaoService();
 		Filme filme = new Filme("Filme 1", 1, 5.0);
 		
 		//acao
