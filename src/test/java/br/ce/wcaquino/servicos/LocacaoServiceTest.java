@@ -98,7 +98,7 @@ public class LocacaoServiceTest {
 		Usuario usuario = new Usuario("Usuario 1");
 		Filme filme = new Filme("Filme 1", 0, 5.0);
 		
-		exception.expect(Exception.class);
+		exception.expect(FilmeSemEstoqueException.class);
 		exception.expectMessage("Filme sem estoque");
 		
 		//acao
