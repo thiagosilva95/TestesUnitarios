@@ -6,9 +6,9 @@ public class FilmeBuilder {
 
 	private Filme filme;
 	
-	private FilmeBuilder() {}
+	private FilmeBuilder(){}
 	
-	public static FilmeBuilder umFilme() {
+	public static FilmeBuilder umFilme(){
 		FilmeBuilder builder = new FilmeBuilder();
 		builder.filme = new Filme();
 		builder.filme.setEstoque(2);
@@ -17,7 +17,7 @@ public class FilmeBuilder {
 		return builder;
 	}
 	
-	public static FilmeBuilder umFilmeSemEstoque() {
+	public static FilmeBuilder umFilmeSemEstoque(){
 		FilmeBuilder builder = new FilmeBuilder();
 		builder.filme = new Filme();
 		builder.filme.setEstoque(0);
@@ -26,7 +26,7 @@ public class FilmeBuilder {
 		return builder;
 	}
 	
-	public FilmeBuilder semEstoque() {
+	public FilmeBuilder semEstoque(){
 		filme.setEstoque(0);
 		return this;
 	}
@@ -36,7 +36,7 @@ public class FilmeBuilder {
 		return this;
 	}
 	
-	public Filme agora() {
+	public Filme agora(){
 		return filme;
 	}
 }

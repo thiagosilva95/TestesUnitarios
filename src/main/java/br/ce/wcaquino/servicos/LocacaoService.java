@@ -65,7 +65,7 @@ public class LocacaoService {
 		return locacao;
 	}
 	
-	public void setLocacaoDao(LocacaoDAO dao) {
+	public void setLocacaoDAO(LocacaoDAO dao) {
 		this.dao = dao;
 	}
 }
